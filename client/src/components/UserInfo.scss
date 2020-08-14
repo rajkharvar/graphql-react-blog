@@ -1,0 +1,29 @@
+@import "../variables";
+
+.user-info {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid $border-color;
+  box-shadow: 10px 10px 10px $border-color;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 10px;
+
+  .info {
+    p {
+      color: $text-secondary;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+
+      p {
+        margin-left: 5px;
+      }
+    }
+  }
+}

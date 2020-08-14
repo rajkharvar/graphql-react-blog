@@ -1,0 +1,27 @@
+@import "../variables";
+
+.user {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px;
+  box-shadow: 10px 10px 10px $border-color;
+  margin: 20px;
+
+  .info {
+    .phone {
+      display: flex;
+      align-items: center;
+    }
+
+    p {
+      color: $text-secondary;
+      margin-top: 4px;
+    }
+  }
+}
