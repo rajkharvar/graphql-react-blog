@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from "react-avatar";
 import { Link } from "react-router-dom";
-import { Smartphone } from "react-feather";
+import { Smartphone, User as UserIcon } from "react-feather";
 
 import "./User.scss";
 
@@ -18,10 +18,13 @@ export default function User({
           <h2>
             {firstName} {lastName}
           </h2>
-          <p>{username}</p>
-          <div className="phone">
+          <div className="icon">
+            <UserIcon />
+            <p>{username}</p>
+          </div>
+          <div className="icon">
             <Smartphone />
-            {phone}
+            <p>{phone}</p>
           </div>
         </div>
       </Link>

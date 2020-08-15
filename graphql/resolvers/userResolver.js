@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { AuthenticationError, UserInputError } = require("apollo-server");
+const { UserInputError } = require("apollo-server");
 require("dotenv").config();
 
 const User = require("../../models/user");
@@ -36,14 +36,22 @@ const userResolver = {
 
       // * check if user with username exist or not
       if (!user) {
-        throw new UserInputError("No user found");
+        throw new UserInputError("No user found", {
+          errors: {
+            username: "No user found with this username",
+          },
+        });
       }
 
       // * If exist check for password
       const match = await bcrypt.compare(password, user.password);
 
       if (!match) {
-        throw new AuthenticationError("Invalid credentials");
+        throw new UserInputError("Incorrect Password", {
+          errors: {
+            password: "Incorrect Password",
+          },
+        });
       }
 
       const token = jwt.sign(

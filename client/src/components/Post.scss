@@ -1,26 +1,22 @@
 @import "../variables";
 
-.post-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  font-size: 1.2rem;
+.post-comp {
+  padding: 20px;
   border: 1px solid $border-color;
   box-shadow: 10px 10px 10px $border-color;
-  border-radius: 10px;
-  margin: 20px;
-  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
 
-  .row {
-    display: flex;
+  h1 {
+    text-align: center;
+    font-size: 2rem;
   }
 
   .icon {
     display: flex;
     flex-direction: row;
     margin: 5px 10px 0 0;
-
+    justify-content: flex-end;
 
     p {
       margin-left: 4px;
@@ -30,4 +26,5 @@
       color: $text-secondary;
     }
   }
+
 }

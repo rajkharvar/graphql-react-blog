@@ -1,0 +1,32 @@
+@import "../variables";
+
+.comments {
+  margin: 10px;
+  border: 1px solid $border-color;
+  box-shadow: 10px 10px 10px $border-color;
+  border-radius: 10px;
+
+  .comment {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid $border-color;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+
+    .text-body {
+      display: flex;
+      flex-direction: column;
+
+      .comment-text {
+        border-radius: 20px;
+        padding: 5px;
+      }
+
+      p {
+        color: $text-secondary;
+      }
+    }
+  }
+}

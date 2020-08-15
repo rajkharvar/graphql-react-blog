@@ -1,0 +1,8 @@
+@import "../variables";
+
+.likes {
+  border: 1px solid $border-color;
+  box-shadow: 10px 10px 10px $border-color;
+  border-radius: 10px;
+  margin: 20px;
+}

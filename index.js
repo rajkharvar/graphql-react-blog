@@ -6,6 +6,7 @@ const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers/");
 
 const server = new ApolloServer({
+  cors: true,
   typeDefs,
   resolvers,
   context: ({ req }) => ({ req }),

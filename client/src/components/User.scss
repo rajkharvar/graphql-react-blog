@@ -14,9 +14,13 @@
   margin: 20px;
 
   .info {
-    .phone {
+    .icon {
       display: flex;
       align-items: center;
+
+      p {
+        margin-left: 4px;
+      }
     }
 
     p {

@@ -1,0 +1,57 @@
+@import "../variables";
+
+nav {
+  width: 100vw;
+  background-color: $text-primary;
+  color: #cccccc;
+
+  button {
+    display: none;
+    background-color: $text-primary;
+    color: #cccccc;
+    border: 0px;
+    padding: 5px 10px;
+    float: right;
+    font-size: 1.1rem;
+  }
+
+  ul {
+    margin: 0;
+    padding: 10px 10vw;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  li {
+    list-style-type: none;
+    display: inline;
+    transition: 0.4s;
+
+    a {
+      padding: 0 20px;
+    }
+
+    :hover {
+      color: $text-primary;
+      background-color: #cccccc;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+
+    button {
+      display: block;
+      cursor: pointer;
+      align-self: flex-end;
+    }
+
+    ul {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    a {
+      display: block;
+    }
+  }
+}
