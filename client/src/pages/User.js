@@ -24,16 +24,11 @@ export default function User() {
 
   return (
     <div>
-      {loadingUser ? (
-        <Loading title="Fetching User Details. Please wait ..." />
-      ) : (
-        userInfo && <UserInfo userInfo={userInfo.user} />
+      {(loadingUser || loadingPosts) && (
+        <Loading title="Fetching Details. Please wait ..." />
       )}
-      {loadingPosts ? (
-        <Loading title="Loading user posts. Please wait ..." />
-      ) : (
-        posts && <Posts posts={posts.getUserPost} />
-      )}
+      {userInfo && <UserInfo userInfo={userInfo.user} />}
+      {posts && <Posts posts={posts.getUserPost} />}
     </div>
   );
 }
