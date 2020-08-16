@@ -73,7 +73,6 @@ export default function Create() {
             onChange={onChange}
             required
           />
-          <button type="submit">Create Post</button>
           <Button title="Create Post" type="submit" />
         </form>
       )}

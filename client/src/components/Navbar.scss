@@ -17,21 +17,34 @@ nav {
 
   ul {
     margin: 0;
-    padding: 10px 10vw;
+    padding: 0 10vw;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    div {
+      display: flex;
+    }
   }
 
   li {
     list-style-type: none;
     display: inline;
-    transition: 0.4s;
+    transition: 0.25s;
+    padding: 10px 0;
+    margin: 0 10px;
 
     a {
       padding: 0 20px;
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-left: 5px;
+      }
     }
 
-    :hover {
+    &:hover {
       color: $text-primary;
       background-color: #cccccc;
     }
@@ -48,6 +61,11 @@ nav {
     ul {
       flex-direction: column;
       padding: 0;
+
+      div {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     a {

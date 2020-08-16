@@ -10,10 +10,10 @@ export default function User({
 }) {
   return (
     <div className="user">
-      <Link to={`/user/${username}`}>
+      <Link to={`/user/${username}`} className="logo-container">
         <Avatar size="60" name={username} round={true} textSizeRatio={1.5} />
       </Link>
-      <Link to={`/user/${username}`}>
+      <Link to={`/user/${username}`} className="text-container">
         <div className="info">
           <h2>
             {firstName} {lastName}

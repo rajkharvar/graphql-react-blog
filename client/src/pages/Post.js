@@ -34,8 +34,8 @@ export default function Post() {
         post && (
           <>
             <PostComp post={post} />
-            <Likes likes={post.likes} />
-            <Comments comments={post.comments} />
+            <Likes likes={post.likes} postId={post.id} />
+            <Comments comments={post.comments.reverse()} postId={post.id} />
           </>
         )
       )}

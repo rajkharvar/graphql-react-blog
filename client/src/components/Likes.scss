@@ -4,5 +4,24 @@
   border: 1px solid $border-color;
   box-shadow: 10px 10px 10px $border-color;
   border-radius: 10px;
-  margin: 20px;
+  margin: 20px 10px;
+
+  .likes-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+
+    .like-username {
+      display: flex;
+      border: 1px solid $border-color;
+      box-shadow: 4px 4px 4px $border-color;
+      border-radius: 16px;
+      margin: 5px 10px;
+      padding: 5px;
+
+      p {
+        margin-left: 5px;
+      }
+    }
+  }
 }

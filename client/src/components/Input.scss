@@ -15,10 +15,15 @@
     border: 2px solid #aaa;
     box-sizing: border-box;
     transition: 0.5s;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 
   input:focus {
     border-color: dodgerblue;
     box-shadow: 2px 2px 2px $border-color;
   }
+
 }

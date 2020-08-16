@@ -11,6 +11,8 @@ export default function Input({
   className,
   onChange,
   required,
+  style,
+  disabled,
 }) {
   return (
     <div className="input-container">
@@ -24,6 +26,8 @@ export default function Input({
         className={className}
         onChange={onChange}
         required
+        style={style}
+        disabled={disabled}
       />
     </div>
   );

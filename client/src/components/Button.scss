@@ -14,5 +14,9 @@
   text-transform: uppercase;
   font-weight: 300;
   letter-spacing: 4px;
+  cursor: pointer;
 
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
