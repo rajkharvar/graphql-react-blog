@@ -10,13 +10,13 @@ import Posts from "../components/Posts";
 export default function User() {
   const { username } = useParams();
 
-  const { loadingUser, data: userInfo } = useQuery(FETCH_USER, {
+  const { loading: loadingUser, data: userInfo } = useQuery(FETCH_USER, {
     variables: {
       username,
     },
   });
 
-  const { loadingPosts, data: posts } = useQuery(FETCH_POSTS, {
+  const { loading: loadingPosts, data: posts } = useQuery(FETCH_POSTS, {
     variables: {
       username,
     },

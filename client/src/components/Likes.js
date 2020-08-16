@@ -7,6 +7,7 @@ import gql from "graphql-tag";
 import "./Likes.scss";
 import { AuthContext } from "../context/auth";
 import Alert from "./Alert";
+import { Link } from "react-router-dom";
 
 export default function Likes({ likes, postId }) {
   const [likesData, setLikesData] = useState(likes);
@@ -66,7 +67,7 @@ export default function Likes({ likes, postId }) {
       {!likesData.length && <h3>No Likes</h3>}
       <div className="likes-container">
         {likesData.map(({ username, id }) => (
-          <div key={id} className="like-username">
+          <Link to={`/user/${username}`} key={id} className="like-username">
             <Avatar
               name={username}
               round={true}
@@ -74,7 +75,7 @@ export default function Likes({ likes, postId }) {
               size={20}
             />
             <p>{username}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

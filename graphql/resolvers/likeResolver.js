@@ -16,6 +16,8 @@ const likeResolver = {
             username,
             createdAt: new Date().toISOString(),
           });
+        } else {
+          post.likes = post.likes.filter((like) => like.username !== username);
         }
 
         await post.save();
