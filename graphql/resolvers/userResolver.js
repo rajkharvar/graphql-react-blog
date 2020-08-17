@@ -4,6 +4,7 @@ const { UserInputError } = require("apollo-server");
 require("dotenv").config();
 
 const User = require("../../models/user");
+const { checkRegisterInput, checkLoginInput } = require("../../util");
 
 const userResolver = {
   Query: {
@@ -33,6 +34,16 @@ const userResolver = {
 
     async login(_, { username, password }) {
       const user = await User.findOne({ username });
+
+      // * check for empty username or password input
+
+      const errors = checkLoginInput(username, password);
+
+      if (Object.keys(errors).length > 0) {
+        throw new UserInputError("Error", {
+          errors,
+        });
+      }
 
       // * check if user with username exist or not
       if (!user) {
@@ -86,6 +97,20 @@ const userResolver = {
           errors: {
             username: "Username is already taken",
           },
+        });
+      }
+
+      const errors = checkRegisterInput(
+        firstName,
+        lastName,
+        phone,
+        username,
+        password
+      );
+
+      if (Object.keys(errors).length > 0) {
+        throw new UserInputError("Error", {
+          errors,
         });
       }
 

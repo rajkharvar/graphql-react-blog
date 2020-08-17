@@ -1,5 +1,6 @@
 const Post = require("../../models/post");
-const { checkAuth } = require("../../util");
+const { checkAuth, checkPostInput } = require("../../util");
+const { UserInputError } = require("apollo-server");
 
 const postResolver = {
   Query: {
@@ -37,6 +38,14 @@ const postResolver = {
   Mutation: {
     async createPost(_, { title, description }, context) {
       const user = checkAuth(context);
+
+      const errors = checkPostInput(title, description);
+
+      if (Object.keys(errors).length > 0) {
+        throw new UserInputError("Error", {
+          errors,
+        });
+      }
 
       const newPost = new Post({
         title,
