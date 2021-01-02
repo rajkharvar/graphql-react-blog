@@ -1,13 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
-import Avatar from "react-avatar";
 import { useMutation } from "@apollo/react-hooks";
+import React, { useContext, useEffect, useState } from "react";
+import Avatar from "react-avatar";
 import { Heart } from "react-feather";
-import gql from "graphql-tag";
-
-import "./Likes.scss";
-import { AuthContext } from "../context/auth";
-import Alert from "./Alert";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/auth";
+import { CREATE_LIKE } from "../graphql/mutations/createLike";
+import Alert from "./Alert";
+import "./Likes.scss";
 
 export default function Likes({ likes, postId }) {
   const [likesData, setLikesData] = useState(likes);
@@ -81,18 +80,3 @@ export default function Likes({ likes, postId }) {
     </div>
   );
 }
-
-const CREATE_LIKE = gql`
-  mutation likePost($postId: ID!) {
-    likePost(postId: $postId) {
-      id
-      description
-      likeCount
-      likes {
-        id
-        username
-        createdAt
-      }
-    }
-  }
-`;

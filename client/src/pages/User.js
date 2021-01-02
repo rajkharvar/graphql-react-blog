@@ -1,11 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
 
 import Loading from "../components/Loading";
 import UserInfo from "../components/UserInfo";
 import Posts from "../components/Posts";
+import { FETCH_POSTS } from "../graphql/queries/fetchPosts";
+import { FETCH_USER } from "../graphql/queries/fetchUser";
 
 export default function User() {
   const { username } = useParams();
@@ -32,29 +33,3 @@ export default function User() {
     </div>
   );
 }
-
-const FETCH_USER = gql`
-  query($username: String!) {
-    user(username: $username) {
-      id
-      firstName
-      lastName
-      username
-      phone
-      createdAt
-    }
-  }
-`;
-
-const FETCH_POSTS = gql`
-  query($username: String!) {
-    getUserPost(username: $username) {
-      id
-      title
-      createdAt
-      description
-      likeCount
-      commentCount
-    }
-  }
-`;

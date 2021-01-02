@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { useMutation } from "@apollo/react-hooks";
-import gql from "graphql-tag";
 import { Link } from "react-router-dom";
 
 import Title from "../components/Title";
@@ -8,6 +7,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { AuthContext } from "../context/auth";
 import Loading from "../components/Loading";
+import { CREATE_POST } from "../graphql/mutations/createPost";
 
 export default function Create() {
   const { user } = useContext(AuthContext);
@@ -84,17 +84,3 @@ export default function Create() {
     </div>
   );
 }
-
-const CREATE_POST = gql`
-  mutation createPost($title: String!, $description: String!) {
-    createPost(title: $title, description: $description) {
-      id
-      createdAt
-      title
-      description
-      username
-      likeCount
-      commentCount
-    }
-  }
-`;

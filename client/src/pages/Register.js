@@ -1,14 +1,15 @@
-import React, { useState, useContext } from "react";
 import { useMutation } from "@apollo/react-hooks";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import gql from "graphql-tag";
 
-import Title from "../components/Title";
+import Alert from "../components/Alert";
+import Button from "../components/Button";
 import Input from "../components/Input";
 import Loading from "../components/Loading";
-import Alert from "../components/Alert";
+import Title from "../components/Title";
 import { AuthContext } from "../context/auth";
-import Button from "../components/Button";
+import { REGISTER_USER } from "../graphql/mutations/registerUser";
+import { FETCH_USERS } from "../graphql/queries/fetchUsers";
 
 export default function Register() {
   const history = useHistory();
@@ -40,6 +41,11 @@ export default function Register() {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
     },
     variables: values,
+    refetchQueries: [
+      {
+        query: FETCH_USERS,
+      },
+    ],
   });
 
   const onSubmit = (e) => {
@@ -111,31 +117,3 @@ export default function Register() {
     </div>
   );
 }
-
-const REGISTER_USER = gql`
-  mutation register(
-    $username: String!
-    $password: String!
-    $firstName: String!
-    $lastName: String!
-    $phone: String!
-  ) {
-    register(
-      registerInput: {
-        username: $username
-        password: $password
-        firstName: $firstName
-        lastName: $lastName
-        phone: $phone
-      }
-    ) {
-      id
-      username
-      phone
-      firstName
-      lastName
-      token
-      createdAt
-    }
-  }
-`;

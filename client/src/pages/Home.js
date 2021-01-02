@@ -1,9 +1,9 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
 
 import Users from "../components/Users";
 import Loading from "../components/Loading";
+import { FETCH_USERS } from "../graphql/queries/fetchUsers";
 
 export default function Home() {
   const { loading, data } = useQuery(FETCH_USERS);
@@ -18,16 +18,3 @@ export default function Home() {
     </div>
   );
 }
-
-const FETCH_USERS = gql`
-  {
-    users {
-      id
-      firstName
-      lastName
-      username
-      createdAt
-      phone
-    }
-  }
-`;

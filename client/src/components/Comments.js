@@ -1,17 +1,15 @@
+import { useMutation } from "@apollo/react-hooks";
+import moment from "moment";
 import React, { useContext, useState } from "react";
 import Avatar from "react-avatar";
-import moment from "moment";
-import gql from "graphql-tag";
 import { Link } from "react-router-dom";
-import { useMutation } from "@apollo/react-hooks";
-// import { ArrowRight } from "react-feather";
-
-import Input from "./Input";
-import Title from "./Title";
+import { AuthContext } from "../context/auth";
+import { CREATE_COMMENT } from "../graphql/mutations/createComment";
 import Button from "./Button";
 import "./Commets.scss";
-
-import { AuthContext } from "../context/auth";
+// import { ArrowRight } from "react-feather";
+import Input from "./Input";
+import Title from "./Title";
 
 export default function Comments({ comments, postId }) {
   const { user } = useContext(AuthContext);
@@ -85,20 +83,3 @@ export default function Comments({ comments, postId }) {
     </div>
   );
 }
-
-const CREATE_COMMENT = gql`
-  mutation createComment($postId: ID!, $text: String!) {
-    createComment(postId: $postId, text: $text) {
-      id
-      description
-      createdAt
-      comments {
-        text
-        id
-        username
-        createdAt
-      }
-      commentCount
-    }
-  }
-`;

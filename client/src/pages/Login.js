@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { useHistory } from "react-router-dom";
-import gql from "graphql-tag";
 
 import Title from "../components/Title";
 import Input from "../components/Input";
 import Alert from "../components/Alert";
 import Loading from "../components/Loading";
 import { AuthContext } from "../context/auth";
+import { LOGIN_USER } from "../graphql/mutations/loginUser";
 import "./Login.scss";
 import Button from "../components/Button";
 
@@ -78,17 +78,3 @@ export default function Login() {
     </div>
   );
 }
-
-const LOGIN_USER = gql`
-  mutation login($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
-      id
-      username
-      phone
-      firstName
-      lastName
-      token
-      createdAt
-    }
-  }
-`;
